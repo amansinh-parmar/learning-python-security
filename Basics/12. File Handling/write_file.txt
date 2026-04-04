@@ -1,0 +1,3 @@
+Hello, Welcome to File Handling Series. 
+Instead using 'w' rather than, Use 'a' to append anything in the file Without remove previous data. 
+Hey, I am inside 'with' statement. 
