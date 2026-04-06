@@ -2,7 +2,7 @@
 
 # #==> Note: Most of time useable to write code  
 # try:    
-#     with open('text.txt') as my_file:
+#     with open('practice.txt') as my_file:
 #         print(my_file.read())
 # except FileNotFoundError as err:
 #     print('Oops, File Not Exists!!!!\n')
