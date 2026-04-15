@@ -1,27 +1,27 @@
-# from practice import Person
+import socket 
+import termcolor
 
-# per = Person()
-# # print(per.usr_name())
-# print(per.usr_age())
-# # per()
+def scan(target, ports):
+    print('\n'+'Starting Scan for: '+ str(target))
+    for port in range(1, ports):
+        scan_port(targets, port)
 
-import os 
+def scan_port(ipaddress, port):
+    try:
+        sock = socket.socket()
+        sock.connect((ipaddress, port))
+        print(termcolor.colored(('[+] Port Open..'), 'light_green') + str(port))
+        sock.close()
+    except:
+        # print(termcolor.colored(('[-] Port Closed..'),'red')+ str(port))
+        pass
 
-rename_file = os.listdir(r"D:\PyCharm\mergePDF")
-i = 'A'
-for file in rename_file:
-    if file.endswith(".pdf"):
-        os.rename(f"D:\PyCharm\mergePDF\{file}", f"D:\PyCharm\mergePDF\{i}.pdf")
-        i = i + 'A'
-        print(file)
+targets = input('[*] Enter Targets to Scan(split them by ,): ')
+ports = int(input('[*] Enter How many Ports you want to Scan: '))
 
-# if file:
-#     os.remove(r"D:\PyCharm\mergePDF\A")
-#     print(file)
-
-file_name = [r'A.pdf', r'AA.pdf']
-with open("D:\PyCharm\mergePDF", 'w') as outfile:
-    for fnmae in file_name:
-        with open(fnmae) as infile:
-            for line in infile:
-                outfile.write(line)
+if ',' in targets:
+    print(termcolor.colored(("[*] Scanning Multiple Targets"), 'light_blue'))
+    for ip_add in targets.split(','):
+        scan(ip_add.strip(' '), ports)
+else:
+    scan(targets, ports)
