@@ -20,7 +20,7 @@ print("Password Generate: ", password)
 # At least 1 digit
 # At least 1 special character
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request # type: ignore
 import secrets
 import random
 import string
