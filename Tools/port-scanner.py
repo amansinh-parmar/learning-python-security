@@ -1,5 +1,5 @@
 import socket
-from termcolor import colored
+from termcolor import colored   # type:ignore
 # print(colored("Hello", "green"))
 
 def scan(target, ports):
